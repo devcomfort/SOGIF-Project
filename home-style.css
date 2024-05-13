@@ -1,0 +1,246 @@
+body{
+    margin: 0;
+}
+.wrap{
+    position: relative;
+    top : 10vh;
+}
+.container{
+    height: 90vh;
+}
+
+.top-bar{
+    width: 100%;
+    position: fixed;
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    border-bottom: 1px solid darkgray;
+    z-index: 9999; /* 가장 위에 위치하도록 설정 */
+}
+
+.top-title-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 15%;
+    height: 100%;
+}
+
+.top-menu-con{
+    display: flex;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+}
+
+.top-menu-con>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 40px;
+}
+
+.top-option-con{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.top-option-con>span{
+    margin: 0 30px;
+}
+
+.top-option-con>span>img{
+    width: 25px;
+}
+
+
+.main-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./img/joging.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.text-box{
+    position: relative;
+    
+}
+
+.centered-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.help-box-con{
+    display: flex;
+}
+
+
+.help-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 580px;
+    width: 450px;
+    border-radius: 30px;
+    margin: 0 20px;
+    background-color: #f9f9f9;
+}
+
+.help-box>div{
+    width: 380px;
+    height: 260px;
+}
+
+.help-box>img{
+    height: 250px;
+}
+
+.left-img{
+    height: 80%;
+    width: 35%;
+    background-color: antiquewhite;
+    border-radius: 0 120px 120px 0;
+}
+
+.right-img{
+    height: 80%;
+    width: 35%;
+    background-color: antiquewhite;
+    border-radius: 120px 0 0 120px;
+}
+
+.main-linkcon{
+    box-sizing: border-box;
+    height: 80%;
+    width: 65%;
+    padding: 60px 30px;
+}
+
+.link-con{
+    height: 400px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.link-box{
+    box-sizing: border-box;
+    height: 350px;
+    width: 245px;
+    background-color: white;
+    border: 1px solid darkgray;
+    border-radius: 30px;
+    margin: 0 18px;
+}
+
+.bottom-bar{
+    height: 150px;
+    width: 100%;
+    border: 1px solid darkgray;
+    background-color: #f9f9f9;
+}
+
+
+
+
+
+
+
+#text1{
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    width: 900px;
+    left: 100px;
+    bottom: 100px;
+}
+
+#text2{
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    width: 900px;
+    left: 100px;
+    bottom: 100px;
+}
+
+#text3{
+    top : 30px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#text4{
+    font-size: 26px;
+    font-weight: bold;  
+    margin-bottom: 10px;
+}
+
+#text5{
+    font-size: 17px;
+    font-weight:bold;
+    color: #777777
+}
+
+#text6{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 70px 85px;
+}
+
+#number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    height: 45px;
+    width: 45px;
+    border-radius: 22.5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+
+#row-con{
+    display: flex;
+    align-items: center;
+}
+
+#column-con{
+    display: flex;
+    flex-direction: column;
+}
+
+#plan-img{
+    background-image: url(./img/계획사진.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+#exercise-img{
+    background-image: url(./img/운동\ 사진.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+#food-img{
+    background-image: url(./img/식단사진.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
