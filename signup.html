@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>회원가입</title>
     <link rel="stylesheet" href="./signup-style.css">
 </head>
 <body>
     <div class="top-bar">
         <div class="top-title-con">
-            <img src="./img/로고.png" alt="" width="120px">
+            <img src="./img/로고.png" alt="로고" width="120px">
         </div>
 
         <div class="top-menu-con">
             <span>로그인</span>
             <span>서비스</span>
-            <span>그룹소개</span> 
+            <span>그룹소개</span>
             <span>좋아요</span>
         </div>
 
         <div class="top-option-con">
             <span>
-                <img src="./img/홈.png" alt="">
+                <img src="./img/홈.png" alt="홈">
             </span>
             <span>
-                <img src="./img/설정.png" alt="">
+                <img src="./img/설정.png" alt="설정">
             </span>
             <span>
-                <img src="./img/사용자.png" alt="">
+                <img src="./img/사용자.png" alt="사용자">
             </span>
         </div>
     </div>
@@ -39,26 +39,63 @@
                     회원가입
                 </div>
                 <div class="center">
-                    <form action="">
-                        <p>
-                            <input type="text" name="id" class="no-border" id="id" placeholder="Email address">
-                        </p>
-                        <p>
-                            <input type="password" name="password" class="no-border" id="pw" placeholder="Password">
-                        </p>
-                        <p>
-                            <input type="password" name="re-enter password" class="no-border" id="pw" placeholder="Re-enter password">
-                        </p>
-
-                        <div>
-                            <input type="button" value="Sign up">
-                        </div>
+                    <form action="./login.html" id="signup-form">
+                        <input type="text" id="name" placeholder="Name" required>
+                        <input type="text" id="id" placeholder="ID" minlength="3" maxlength="15" required>
+                        <input type="password" id="pw" placeholder="Password" minlength="5" maxlength="20" required>
+                        <input type="password" id="confirm-pw" placeholder="Confirm Password" required>
+                        <button type="submit">Sign up</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event){
+            
+            let duplicate = false;
+
+            let userData = {
+                name: document.getElementById('name').value,
+                id: document.getElementById('id').value,
+                pw: document.getElementById('pw').value
+            };
+
+            let confirmPw = document.getElementById('confirm-pw').value;
+
+            if (userData.name && userData.id && userData.pw && confirmPw){
+                if(userData.pw === confirmPw){
+                    // 기존 사용자 목록을 로컬 스토리지에서 불러오기
+                    let users = JSON.parse(localStorage.getItem('Users')) || [];
+                    
+                    for(let i=0; i<users.length; i++){
+                        if(users[i].id==userData.id){
+                            event.preventDefault();
+                            alert("아이디 중복")
+                            duplicate = true;
+                            break;
+                        }
+                    }
+
+                    if(duplicate === false){
+                            // 새 사용자 추가
+                        users.push(userData);
+
+                        // 업데이트된 사용자 목록을 로컬 스토리지에 저장
+                        localStorage.setItem('Users', JSON.stringify(users));
+                        alert('회원가입이 완료되었습니다.');
+                    }
+                    
+                } else{
+                    event.preventDefault();
+                    alert('비밀번호가 일치하지 않습니다.');
+                } 
+            } else{
+                event.preventDefault();
+                alert('값을 입력해주세요.');
+            }
+        });
+    </script>
 </body>
 </html>
