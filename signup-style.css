@@ -78,41 +78,32 @@ body{
     font-weight: bold;
 }
 
+#signup-form{
+    display: flex;
+    flex-direction: column;
+
+}
+
 input:focus {outline: none;}
-
-.no-border{
-    border-width: 0;
-}
-
-#id{
-    border-bottom: 1px solid #E2E2E2;
-    margin-top: 30px;
-    height: 50px;
-    width: 500px;
-
-}
-
-#pw{
-    border-bottom: 1px solid #E2E2E2;
-    margin-top: 30px;
-    height: 50px;
-    width: 500px;
-}
 
 input::placeholder {
     font-size: 16px;
     color: gray;
 }
 
-form>div{
-    display: flex;
-    justify-content:flex-end;
-    width: 480px;
-    margin-top: 60px;
-    margin-left: 10PX;
+form>input{
+    border-width: 0;
+    border-bottom: 1px solid #E2E2E2;
+    margin-top: 30px;
+    height: 50px;
+    width: 500px;
 }
 
-form>div>input{
+
+button{
+    position: relative;
+    top: 70px;
+    left: 380px;
     background-color: #92D050;
     border: none;
     border-radius: 15px;
