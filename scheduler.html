@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./scheduler-style.css">
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-bar">
+            <img src="./img/로고2.png" alt="" id="logo">
+        </div>
+        <div class="container">
+            <div class="tool-bar">
+                <button id="save">저장</button>
+            </div>
+            <div class="content-con">
+                <div class="calender-con">
+                    <input type="text" class="title" placeholder="TITLE">
+                    <table name="calender">
+                        <thead>
+                            <tr>                               
+                                <td><</td>
+                                <td colspan="5" style="font-size: 25px;">June 2024</td>
+                                <td>></td>
+                            </tr>
+                        </thead>
+                        <div class="yoil">
+                            <tr>
+                                <td>S</td>
+                                <td>M</td>
+                                <td>T</td>
+                                <td>W</td>
+                                <td>T</td>
+                                <td>F</td>
+                                <td>S</td>
+                            </tr>
+                        </div>
+                        <tbody>
+                            <tr>
+                                <td id="color-gray">28</td>
+                                <td id="color-gray">29</td>
+                                <td id="color-gray">30</td>
+
+                                <td><button class="day">1</button></td>
+                                <td><button class="day">2</button></td>
+                                <td><button class="day">3</button></td>
+                                <td><button class="day">4</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="day">5</button></td>
+                                <td><button class="day">6</button></td>
+                                <td><button class="day">7</button></td>
+                                <td><button class="day">8</button></td>
+                                <td><button class="day">9</button></td>
+                                <td><button class="day">10</button></td>
+                                <td><button class="day">11</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="day">12</button></td>
+                                <td><button class="day">13</button></td>
+                                <td><button class="day">14</button></td>
+                                <td><button class="day">15</button></td>
+                                <td><button class="day">16</button></td>
+                                <td><button class="day">17</button></td>
+                                <td><button class="day">18</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="day">19</button></td>
+                                <td><button class="day">20</button></td>
+                                <td><button class="day">21</button></td>
+                                <td><button class="day">22</button></td>
+                                <td><button class="day">23</button></td>
+                                <td><button class="day">24</button></td>
+                                <td><button class="day">25</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="day">26</button></td>
+                                <td><button class="day">27</button></td>
+                                <td><button class="day">28</button></td>
+                                <td><button class="day">29</button></td>
+                                <td><button class="day">30</button></td>
+                                <td><button class="day">31</button></td>
+                                <td id="color-gray">1</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="plan-con">
+                    <div id="plan">
+                        <textarea name="" id="plan-txt" spellcheck="false"></textarea>
+                    </div>
+                </div>
+                
+                <!-- 메모장 -->
+
+                <div class="memo-con">
+                    <div class="memo">
+                        <textarea name="" id="memo-txt" spellcheck="false"></textarea>
+                    </div>
+                    <button id="add-memo">+</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let users = JSON.parse(localStorage.getItem('Users')) || [];
+
+        let userNum = 99;
+        for(let i=0; i<users.length; i++){
+            if(users[i].login==true){
+                userNum = i;
+                break;
+            }
+        }
+
+        let days = document.getElementsByClassName('day');
+        let plan = document.getElementById('plan-txt');
+        let memo = document.getElementById('memo-txt')
+        let save = document.getElementById('save');
+
+        let newSchedule = users[userNum].schedule;
+
+        let runningDay = null;
+        
+        for(let i = 0; i < days.length; i++){
+            days[i].addEventListener('click', () => {
+            // 이전에 선택된 day가 있다면 해당 day의 계획을 저장
+            if (runningDay !== null) {
+                newSchedule[runningDay] = plan.value;
+                days[runningDay].style.backgroundColor = '';
+            }
+
+            // 현재 선택된 버튼의 배경색을 주황색으로 변경
+            days[i].style.backgroundColor = 'orange';
+
+            plan.value = `${newSchedule[i]}`;
+
+            runningDay = i;
+        });
+        }
+
+        function sav1e(){
+            if (runningDay !== null) {
+                newSchedule[runningDay] = plan.value;
+            }
+            users[userNum].schedule = newSchedule;
+            localStorage.setItem('Users', JSON.stringify(users));
+            alert('저장되었습니다.')
+        }
+
+        save.addEventListener('click', sav1e)
+    
+
+
+
+        
+
+        
+    </script>
+</body>
+</html>
