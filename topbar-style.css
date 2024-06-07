@@ -1,0 +1,147 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.wrap{
+    position: relative;
+    top : 95px;
+}
+
+.top-bar{
+    width: 100%;
+    position: fixed;
+    height: 95px;
+    /* height: 10vh; */
+    background-color: white;
+    display: flex;
+    border-bottom: 1px solid darkgray;
+    z-index: 9999; /* 가장 위에 위치하도록 설정 */
+    align-items: flex-end;
+}
+
+.top-title-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 15%;
+    height: 100%;
+}
+
+.top-menu-con{
+    display: flex;
+    width: 60%;
+    height: 60px;
+    align-items:  flex-start;
+}
+
+.menu-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 50px;
+    width: 50px;
+}
+
+.menu{
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.menu:hover{
+    color:#FFD400;
+}
+
+.menu>a:hover{
+    color: #FFD400;
+}
+
+
+
+.service{
+    box-sizing: border-box;
+    padding: 0 12px;
+    display: none;
+    position: relative;
+    top : 35px;
+    height: 250px;
+    width: 160px;
+    background-color: white;
+    /* opacity: 0.85;  투명도 */
+    font-size: 16.2px;
+    font-weight: bold;
+    border-radius: 0 0 15px 15px;
+    color : gray;
+}
+
+.service>span{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.service>span>a{
+    color: gray;
+}
+
+.service>span>a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.top-option-con{
+    box-sizing: border-box;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.top-option-con>span{
+    margin: 0 30px;
+}
+
+#service-box:hover{
+    .service{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+#user-box{
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 100px;
+    align-items: center;
+}
+
+#user-box:hover{
+    #user{
+        display: flex;
+    }
+}
+
+#user{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 95px;
+    right: 16px;
+    height: 170px;
+    width: 160px;
+    background-color: white;
+    opacity: 0.85;  /* 투명도 */
+}
+
+.option-img{
+   width: 25px; 
+   height: 25px;
+}
+
