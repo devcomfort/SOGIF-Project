@@ -1,6 +1,4 @@
-body {
-  margin: 0;
-}
+@import url(https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css);
 
 .top-bar {
   width: 100%;
