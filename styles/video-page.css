@@ -1,0 +1,86 @@
+@import url(https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css);
+@import url(./topbar-style.css);
+/* naver color: #2db400 */
+
+:root {
+  --bg-color: #162114;
+  --font-color: white;
+  /* 조금 밝은 검정 */
+  --video-card-bg-color: #0c0c0c;
+}
+
+/* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+
+  font-size: xx-large;
+  font-weight: bold;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  /* 중앙 정렬 */
+  align-items: center;
+
+  /* 영상 리스트 */
+  > .videos {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    /* 영상 간 간격 */
+    gap: 4rem;
+
+    /* 영상 + 영상 설명 엘리먼트 내부 스타일 */
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      :nth-child(1) {
+        /* 제목 요소 */
+        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
+      }
+      :nth-child(2) {
+        /* 영상 요소 */
+        margin-bottom: 2rem;
+      }
+
+      /* 분량 초과 시 단어가 중간에 끊어지지 않도록 처리 */
+      word-break: keep-all;
+      /* 줄 간 간격 넓게 설정 */
+      line-height: normal;
+
+      /* 영상 영역 */
+      div.card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 16px;
+        background-color: var(--video-card-bg-color);
+
+        /* 영상 카드 크기 및 비율 설정; 세로 크기 기준으로 보여짐 */
+        --height: 66vh;
+        height: var(--height);
+
+        > video {
+          height: var(--height);
+        }
+      }
+    }
+  }
+}
