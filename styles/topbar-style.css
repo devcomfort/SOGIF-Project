@@ -11,13 +11,11 @@ a {
 .top-bar {
   width: 100%;
   position: fixed;
-  height: 95px;
-  /* height: 10vh; */
+  height: 10vh;
   background-color: white;
   display: flex;
   border-bottom: 1px solid darkgray;
   z-index: 9999; /* 가장 위에 위치하도록 설정 */
-  align-items: flex-end;
 }
 
 .top-title-con {
@@ -31,8 +29,51 @@ a {
 .top-menu-con {
   display: flex;
   width: 60%;
-  height: 60px;
-  align-items: flex-start;
+  height: 100%;
+  align-items: center;
+  > span {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 40px;
+  }
+}
+
+.top-option-con {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  > span {
+    margin: 0 30px;
+    > img {
+      width: 25px;
+    }
+  }
+}
+
+.help-box-con {
+  display: flex;
+}
+
+.help-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 580px;
+  width: 450px;
+  border-radius: 30px;
+  margin: 0 20px;
+  background-color: #f9f9f9;
+  > div {
+    width: 380px;
+    height: 260px;
+  }
+  > img {
+    height: 250px;
+  }
 }
 
 .menu-box {
