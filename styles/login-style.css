@@ -89,7 +89,7 @@
       rgba(35, 61, 116, 0.178),
       rgba(35, 61, 116, 0.178)
     ),
-    url(./img/회원가입\ 배경.jpg);
+    url(../img/회원가입\ 배경.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 8px 8px 8px #e2e2e2;

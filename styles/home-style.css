@@ -62,7 +62,7 @@
   justify-content: center;
   height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(./img/joging.jpg);
+    url(../img/joging.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -218,19 +218,19 @@
 }
 
 #plan-img {
-  background-image: url(./img/계획사진.jpg);
+  background-image: url(../img/계획사진.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #exercise-img {
-  background-image: url(./img/운동\ 사진.jpg);
+  background-image: url(../img/운동\ 사진.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #food-img {
-  background-image: url(./img/식단사진.jpg);
+  background-image: url(../img/식단사진.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
