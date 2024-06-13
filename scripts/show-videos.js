@@ -129,7 +129,7 @@ function init(targetElement, level) {
     const descElement = document.createElement("div");
 
     // 제목 내용 설정
-    titleElement.innerText = titles[level][index];
+    titleElement.innerHTML = titles[level][index];
     titleWrapperElement.appendChild(titleElement);
 
     // 영상 주소 설정
@@ -139,7 +139,7 @@ function init(targetElement, level) {
     cardElement.classList.add("card");
     cardElement.appendChild(videoElement);
     // 영상 설명 데이터를 가져와 입력함
-    descElement.innerText = video_descriptions[level][index];
+    descElement.innerHTML = video_descriptions[level][index];
 
     // 영상 카드와 영상 설명을 엘리먼트에 추가
     newElement.appendChild(titleWrapperElement);
