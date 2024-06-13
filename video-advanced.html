@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>운동 &mdash; 고급</title>
+    <link rel="stylesheet" href="./styles/video-page.css" />
+    <script src="./scripts/show-videos.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // 고급 페이지 셋업
+        init(document.querySelector(".videos"), "advanced");
+      });
+    </script>
+  </head>
+  <body>
+    <!-- 상단바 -->
+    <div class="top-bar">
+      <div class="top-title-con">
+        <img src="./img/로고.png" alt="" width="120px" />
+      </div>
+
+      <div class="top-menu-con">
+        <span>로그인</span>
+        <span>서비스</span>
+        <span>그룹소개</span>
+        <span>좋아요</span>
+      </div>
+
+      <div class="top-option-con">
+        <span>
+          <img src="./img/홈.png" alt="" />
+        </span>
+        <span>
+          <img src="./img/설정.png" alt="" />
+        </span>
+        <span>
+          <img src="./img/사용자.png" alt="" />
+        </span>
+      </div>
+    </div>
+
+    <!-- 메인 화면 -->
+    <div class="container">
+      <div class="videos"></div>
+    </div>
+  </body>
+</html>
