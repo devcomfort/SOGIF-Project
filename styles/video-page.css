@@ -1,12 +1,24 @@
 @import url(https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css);
 @import url(./topbar-style.css);
-/* naver color: #2db400 */
+
+/* 강한육군폰트 가져오기 */
+/* 출처: https://noonnu.cc/font_page/659#google_vignette */
+@font-face {
+  font-family: "ROKABold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --bg-color: #162114;
   --font-color: white;
   /* 조금 밝은 검정 */
   --video-card-bg-color: #0c0c0c;
+
+  /* 소제목의 배경색 */
+  --title-bg-color: #92d050;
 }
 
 /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
@@ -22,6 +34,10 @@ body {
   font-size: xx-large;
   font-weight: bold;
 
+  /* [폰트 설정] */
+  /* 1) 상단바까지도 글꼴 적용하기 */
+  font-family: "ROKABold", sans-serif;
+
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -32,12 +48,16 @@ body {
   flex-direction: column;
   gap: 1rem;
 
+  /* [폰트 설정] */
+  /* 2) 영상 부분에만 글꼴 적용하기 */
+  /* font-family: "ROKABold", sans-serif; */
+
   /* 중앙 정렬 */
   align-items: center;
 
   /* 영상 리스트 */
   > .videos {
-    width: 50%;
+    width: 50vw;
 
     display: flex;
     flex-direction: column;
@@ -49,10 +69,21 @@ body {
       display: flex;
       flex-direction: column;
 
+      /* 제목 디자인 */
       :nth-child(1) {
-        /* 제목 요소 */
-        margin-bottom: 0.75rem;
-        font-size: 1.5rem;
+        /* 제목 블록 */
+        /* margin-bottom: 0.75rem; */
+        /* 1.5배 처리 */
+        font-size: calc(1.5rem * 1.5);
+
+        /* 제목 단어 (배경색은 여기에 적용됨) */
+        > span {
+          background-color: var(--title-bg-color);
+          padding: 2px 12px;
+          /* border-radius: 8px; */
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+        }
       }
       :nth-child(2) {
         /* 영상 요소 */
@@ -69,16 +100,26 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        place-items: center;
 
         border-radius: 16px;
-        background-color: var(--video-card-bg-color);
-
-        /* 영상 카드 크기 및 비율 설정; 세로 크기 기준으로 보여짐 */
-        --height: 66vh;
-        height: var(--height);
+        /* 영상 배경 제거 */
+        /* 영상과 카드의 크기가 안 맞고 + 브라우저 호환성 문제로 맞추기가 어려움 */
+        /* 그래서 별도의 배경 없이 16:9 비율로 맞춰진 영상을 그대로 표시함 */
+        /* background-color: var(--video-card-bg-color); */
 
         > video {
-          height: var(--height);
+          /* 전체 화면 가로 크기의 50% */
+          /* 1vw = 화면 가로 크기의 1% */
+          width: 50vw;
+
+          /* [영상 테두리 설정] */
+          /* 1) 모든 모서리에 굴곡 주기 */
+          /* border-radius: 16px; */
+          /* 2) 좌상단 모서리 빼고 굴곡 주기 */
+          border-top-right-radius: 12px;
+          border-bottom-left-radius: 12px;
+          border-bottom-right-radius: 12px;
         }
       }
     }
