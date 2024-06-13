@@ -69,30 +69,31 @@ const titles = {
   ],
 };
 
+/** 영상 설명들 */
 const video_descriptions = {
   // 초급
   beginner: [
-    "초급 1 걷기",
-    "초급 2 런지",
-    "초급 3 풀업",
-    "초급 4 맨몸 스쿼트",
-    "초급 5 푸쉬업",
+    "(초급 1 걷기 설명)",
+    "(초급 2 런지 설명)",
+    "(초급 3 풀업 설명)",
+    "초급 (4 맨몸 스쿼트 설명)",
+    "(초급 5 푸쉬업 설명)",
   ],
   // 중급
   intermediate: [
-    "중급 1 바벨 런지",
-    "중급 2 벤치프레스",
-    "중급 3 바벨 스쿼트",
-    "중급 4 오버헤드 프레스",
-    "중급 5 데드리프트",
+    "중급 (1 바벨 런지 설명)",
+    "(중급 2 벤치프레스 설명)",
+    "중급 (3 바벨 스쿼트 설명)",
+    "중급 (4 오버헤드 프레스 설명)",
+    "(중급 5 데드리프트 설명)",
   ],
   // 고급
   advanced: [
-    "고급 1 저쳐스쿼트",
-    "고급 2 업라이트 로우",
-    "고급 3 백스쿼트 프레스",
-    "고급 4 클린 앤 저크",
-    "고급 5 링딥스",
+    "(고급 1 저쳐스쿼트 설명)",
+    "고급 (2 업라이트 로우 설명)",
+    "고급 (3 백스쿼트 프레스 설명)",
+    "고급 4 (클린 앤 저크 설명)",
+    "(고급 5 링딥스 설명)",
   ],
 };
 
@@ -108,8 +109,18 @@ function init(targetElement, level) {
     /** 모든 내용을 이 엘리먼트에 담아서 출력에 사용함 */
     const newElement = document.createElement("div");
 
+    // 제목 엘리먼트가
+    // <div>
+    //   <span> 제목 </span>
+    // <div>
+    // 구조가 되도록 작성하였습니다.
+    // 단일 엘리먼트로만 구성하게 되면 가로 크기가 고정되어 CSS를 통해 "제목 부분에만 배경 색을 주는 것이 불가하기 때문에" 이렇게 구성하였습니다
+
+    /** 제목을 감싸는 엘리먼트 */
+    const titleWrapperElement = document.createElement("div");
     /** 제목 엘리먼트 */
-    const titleElement = document.createElement("h1");
+    const titleElement = document.createElement("span");
+
     /** 카드 엘리먼트; 화면에서 영상의 배경과 영상이 함께 차지하는 영역 */
     const cardElement = document.createElement("div");
     /** 영상 엘리먼트 (카드 엘리먼트 내에 위치함) */
@@ -117,7 +128,9 @@ function init(targetElement, level) {
     /** 영상 설명 엘리먼트 */
     const descElement = document.createElement("div");
 
+    // 제목 내용 설정
     titleElement.innerText = titles[level][index];
+    titleWrapperElement.appendChild(titleElement);
 
     // 영상 주소 설정
     videoElement.setAttribute("controls", "");
@@ -129,7 +142,7 @@ function init(targetElement, level) {
     descElement.innerText = video_descriptions[level][index];
 
     // 영상 카드와 영상 설명을 엘리먼트에 추가
-    newElement.appendChild(titleElement);
+    newElement.appendChild(titleWrapperElement);
     newElement.appendChild(cardElement);
     newElement.appendChild(descElement);
 
