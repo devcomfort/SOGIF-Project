@@ -6,6 +6,12 @@
     <title>운동 &mdash; 초급</title>
     <link rel="stylesheet" href="./styles/video-page.css" />
     <script src="./scripts/show-videos.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // 초급 페이지 셋업
+        init(document.querySelector(".videos"), "beginner");
+      });
+    </script>
   </head>
   <body>
     <!-- 상단바 -->
